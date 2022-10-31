@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Management Systems</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+ crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#"> User Management</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/user}">User Management</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+<div class="container"> 
+ 
+<div class="row"> 
+<h1> List of Users</h1></div>
+<div class="row">
+</div>
+<div class=coL-Lg-3> </div>
+<a th:href="@{/user/new}"  class="btn btn-primary btn-sm mb-3"> Add User</a>
+<table class="table table-striped table-bordered">
+<thead class="table-dark">
+<tr>
+<th> First Name</th>
+<th> Last Name</th>
+<th> Email</th>
+<th> Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="User:${Users}"> 
+<td th:text = "${User.firstName}"></td>
+<td th:text = "${User.LastName}"> </td>
+<td th:text = "${User.email}"></td>
+<td>
+<a th:href="@{/user/edit/{id}(id=${User.id})}" 
+class="btn btn-primary">Update
+</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</body>
+</html>
